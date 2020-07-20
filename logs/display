@@ -1,0 +1,31 @@
+1. Yii 2 new version -> long text content will break layout of gridview
+backend/web/css/site.css
+
+    /*.grid-view td {*/
+        /*white-space: nowrap;*/
+    /*}*/
+
+
+    .grid-view td {
+        white-space: inherit !important;
+    }
+
+2. 20171218
+   E:\xampp\htdocs\framework\backend\web\themes\metronic\assets\layouts\layout\scripts\layout.js
+   E:\xampp\htdocs\framework\backend\web\themes\metronic\assets\layouts\layout2\scripts\layout.js
+   E:\xampp\htdocs\framework\backend\web\themes\metronic\assets\layouts\layout4\scripts\layout.js
+   E:\xampp\htdocs\framework\backend\web\themes\metronic\assets\global\plugins\plupload\js\jquery.ui.plupload\jquery.ui.plupload.js
+
+   handleSidebarToggler(); not working because this metronic script not compatible with js-cookie v2.0.0
+
+   https://github.com/js-cookie/js-cookie/releases/tag/v2.0.0
+   js-cookie v2 is not backwards compatible with jquery-cookie or js-cookie v1......
+   ....
+   $.cookie('name', 'value') -> Cookies.set('name', 'value')
+   $.cookie('name') -> Cookies.get('name')
+   $.removeCookie('name') -> Cookies.remove('name')
+   $.cookie() -> Cookies.get()
+   .....
+
+   => Update code to compatible with new version
+   => Backup original one to layout-org.js

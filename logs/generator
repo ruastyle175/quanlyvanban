@@ -1,0 +1,48 @@
+//Helper for internal (Related to model) -> backend/components
+//Helper for generator (Not Related to model) -> projectemplate/components
+
+1. DB comments
+LOOKUP:object_category|id|name
+DROPDOWN:male|female|unknown
+DROPDOWN:male|female|unknown|Camel Case
+DROPDOWN:{"xx":"Xxxx","yy":"Yyyy"}
+DROPDOWN:{"xx":"Xx XX","yy":"YY i YY","2":"Title 2"}
+DROPDOWN:["xxx","yyy","zzz-zzz"]
+DROPDOWN:[{"key":"1","value":"Title"},{"key":"aaa","value":"AAA AAA"},{"key":"bbb","value":"BBB"},{"key":"ccc","value":"CCC"}]
+
+elseif ($column->dbType == 'date') {
+                $class ="        ".$is_comment."'class' => 'kartik\grid\EditableColumn',\n";
+                $format="        ".$is_comment."'format' => 'date',\n";
+                $editableOptions ="        ".$is_comment."'editableOptions' => [
+                            ".$is_comment."'size' => 'md',
+                            ".$is_comment."'inputType' => \kartik\\editable\Editable::INPUT_WIDGET,
+                            ".$is_comment."'widgetClass' => 'kartik\datecontrol\DateControl',
+                            ".$is_comment."'options' => [
+                                ".$is_comment."'type' => \kartik\datecontrol\DateControl::FORMAT_DATE,
+                                ".$is_comment."'displayFormat' => 'yyyy-MM-dd',
+                                ".$is_comment."'saveFormat' => 'php:Y-m-d',
+                                ".$is_comment."'options' => [
+                                    ".$is_comment."'pluginOptions' => [
+                                        ".$is_comment."'autoclose' => true
+                                    ".$is_comment."]
+                                ".$is_comment."]
+                            ".$is_comment."]
+                        ".$is_comment."],\n";
+                $hAlign="        ".$is_comment."'hAlign' => 'left',\n";
+                $vAlign="        ".$is_comment."'vAlign' => 'middle',\n";
+            }
+
+2. Nov 17, 2016
+- Bootstrap.php
+  $app->getModule('gii')->generators['crud'] = 'projectemplate\ptcrud\generators\Generator';
+  $app->getModule('gii')->generators['model'] = 'projectemplate\ptcrud\model\Generator';
+  //keep crud and model: auto fill working
+
+- projectemplate\ptcrud\src\model\default\model.php
+  check if have field: image, avatar, logo, attachment ..... -> add $file, $file1 variable ro store file upload
+
+- projectemplate\ptcrud\src\model\Generator.php
+  generateActiveFieldAdvanced & generateActiveField -> ajax form and normal form
+  comment created_date, modified_date
+
+- view, columns, controller, form: add file input / show image by default

@@ -1,0 +1,30 @@
+        $check = Author::model()->findAll("username = '$username' OR email = '$email'");
+        if (count($check) != 0) {
+            $username_exist = 0;
+            $email_exist = 0;
+            foreach ($check as $item) {
+                /* @var Author $item */
+                if ($item->username == $username) {
+                    $username_exist = 1;
+                }
+                if ($item->email == $email) {
+                    $email_exist = 1;
+                }
+            }
+
+            $msg = 'Email or username exists';
+            if ($email_exist == 1 && $username_exist == 1) {
+                $msg = 'Email and username exists';
+            }
+            if ($email_exist == 1 && $username_exist == 0) {
+                $msg = 'Email exists';
+            }
+            if ($email_exist == 0 && $username_exist == 1) {
+                $msg = 'Username exists';
+            }
+
+            ApiController::sendResponse(200, CJSON::encode(array(
+                'status' => 'ERROR',
+                'data' => '',
+                'message' => $msg,)));
+        }

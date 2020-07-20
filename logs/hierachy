@@ -1,0 +1,31 @@
+Structure
+
+Backend:
+NOTE: Can use generator
+
+- actions: General apis
+- modules/module name/actions: Module's apis
+- controllers/ApiController:  controller for general api
+- modules/module name/controllers/ApiController: controller for module's apis
+
+- controllers/BackendController: Base controller for backend (Where to edit main menu, passing theme values, baseUpload ..etc )
+
+- components: Helper class for backend
+- web/upload: upload location
+- web/themes: theme location
+
+Common
+
+- base: Base classes
+- components: helper for global (backend & frontend)
+- widgets: widgets for global (chart, fgrid, alert)
+- data: database dump location
+
+Frontend
+NOTE: Can not use generator, code by yourself
+
+- components: Heler for frontend
+- controllers/FrontendController:
+- web/themes: themes location
+- web/themes/theme name: location for views + models + controllers customized for theme
+- frontend/vieww/ => frontend/web/themes/theme name/ pointed wrong => need to check and fix to frontend/web/themes/theme/views/

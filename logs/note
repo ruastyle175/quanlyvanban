@@ -1,0 +1,31 @@
+A. Tips and tricks
+
+1. Path
+
+Yii::getAlias('@app')
+
+@yii - framework directory.
+
+@app - base path of currently running application. C:\xampp\htdocs\framework\backend/
+
+@runtime - runtime directory.
+
+@vendor - Composer vendor directory.
+
+@webroot - web root directory of currently running web application. C:/xampp/htdocs/framework/backend/web
+
+@web - base URL of currently running web application. /framework/backend/web
+
+2. Pjax use
+data-pjax = "0" not working on grid if format = 'html'
+=> format => 'row'
+-------------------------------------------------------------------------------
+disable pjax for link or button => data-pjax = "0"
+
+
+3. PHPStorm settings
+
+PHPStorm Update
+Settings | Editor | Inspections | PHP | Error handling | Unhandled exception
+=> Disable
+Settings | Editor | Inspections | PHP | Composer | Extension is missing in composer.json

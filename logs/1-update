@@ -1,0 +1,64 @@
+1. Add Module CMS:
+                    cms_page(id, name, content(HTML)) (policy, service, FAQ, about) => Nếu chỉ cần 1 trang html
+                    cms_faq(id, question, answer, icon, color, sort_order) ->faq
+                    cms_services (id, name, icon, color, description, sort_order) -> dịch vụ
+                    cms_partner (id, name, address, phone, skype, facebook, email, sort_order) -> đối tác
+                    cms_location (id, name, address, phone, email, skype, facebook, lat, long , sort_order) -> chi nhánh
+                    cms_contact (id, name, location(address), phone, email, sort_order) -> liên hệ
+                    cms_gallery (id, name, sort_order) => file lưu vào object_file (object_type = cms-gallery) ->thu viện hình ảnh
+
+2. Add table application (app) - (id, image, name, description)  => Add application_id to cms, blog, ecommerce, content tables
+
+3. Update label in controller if use Yii:t when gen code
+
+4. Improve base
+- Relocation base classes and helper
+- Improve core: FSetting
+- Improve tool gen read image field from comment not from array
+- Generator model validate tinyint(1) => string (?)
+https://github.com/yiisoft/yii2/issues/17303
+- Model and name of table not match
+Example:
+Menu / game_menu
+=> controller save to different folder with MenuAPI
+
+them phan an hien error tren base action
+
+hẹ thống lại các base class FApi FHelper FFile FConstant FHtml FSetting
+
+định nghĩa field ảnh, file trong comment (not by array như hiện tại)
+
+5. API
+- Update API base action tham khao E:\xampp\htdocs\framework\common\base\api\BaseActionXXXX.php
+- Origin
+https://github.com/yiisoft/yii2/issues/17296
+/**
+ * @inheritdoc
+ */
+public function behaviors(): array
+{
+    $behaviors = parent::behaviors();
+    $behaviors['corsFilter'] = [
+        'class' => \yii\filters\Cors::class,
+        'cors' => [
+            'Origin' => [Yii::$app->request->getOrigin()],
+            'Access-Control-Allow-Credentials' => true,
+        ],
+    ];
+    return $behaviors;
+}
+
+
+6. Update frontend
+- Remove frontend theme setting
+- Update frontend/views/... problem https://github.com/yiisoft/yii2/issues/17298
+
+7. Update user rights system DONE
+- Update AccessRule, BackendController
+- Manage rights, roles
+- Manage backend user, assign roles
+- Update generator for generate controller access rules
+
+8. Update app_meta PROCESSING
+
+9. Logging user activity system_log

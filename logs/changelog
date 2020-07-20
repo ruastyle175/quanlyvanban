@@ -1,0 +1,144 @@
+FIX: 2.0.8
+- CheckboxColumn: Check all not working after ajax reload of kartik gridview (but working with default grid)
+=> How to fix: + Check vendor/yiisoft/yii2/grid/CheckboxColumn.php => has changes in version > 2.0.7,
+$this->registerClientScript(); need to be move from init() to renderHeaderCellContent()
+If it's loaded before render cell content, after ajax reload, kartik gid script will not work because missing JS  in registerClientScript()
+$this->grid->getView()->registerJs("jQuery('#$id').yiiGridView('setSelectionColumn', $options);");
+
+=> Deprecated. Fixed in latest version
+
+=========Imagine=========
+http://www.yiiframework.com/wiki/757/how-to-use-imagine-crop-thumb-effects-for-images-on-yii2/
+
+=========UPDATE CONTINUE=========
+
+- Tool gen: Move delete files function From Controller to ModelBase,
+
+- Add more custom search field => need to add rule for that field in ModelSearch (safe)
+
+- If check all not working on gridview after pjax reload
+
+add this to index
+<?php
+$pjaxRegister = '
+$(document).on("pjax:complete", function() {
+    $("#crud-datatable").yiiGridView("setSelectionColumn", {"name":"selection[]","multiple":true,"checkAll":"selection_all"});
+})';
+$this->registerJs($pjaxRegister, \yii\web\View::POS_END);
+?>
+
+=========SESSION FOR MULTIPLE BACKEND=========
+Trường hợp bị trùng session khi có nhiều project trên cùng một host
+- Login project này vào được project khác
+- Log out khỏi project nhung khi gõ link trang home vẫn vào được và load ra user của project khác
+FIX
+'session' => [
+    'name' => '_backendSessionId', // unique for backend
+    'savePath' => __DIR__  . '/../runtime', // a temporary folder on backend
+],
+thêm vao config main. thay _backendSessionId bằng một unique string cho project đó
+ví dụ _dgbackend
+wiki
+http://www.yiiframework.com/wiki/686/configuring-different-sessions-for-backend-and-frontend-in-yii-advanced-app/
+
+=========UPDATE YII=========
+https://github.com/yiisoft/yii2/blob/2.0.12/framework/UPGRADE.md
+
+=========Gitlab=========
+Credential Manager
+
+Oct 11, 2017 -----------------------------------------------------------------------------------------------------------
+Integrate https://github.com/bupy7/yii2-widget-cropbox
+
+=========OVERWRITE DI=========
+http://www.yiiframework.com/wiki/628/override-eliminate-bootstrap-css-js-for-yii-2-0-widgets/
+
+=========Gii error load backend and bootstrap.css=========
+
+http://www.yiiframework.com/forum/index.php/topic/51084-change-layout-for-erroraction/
+Gii -> create model -> right click to model link -> show error page with break layout
+-> load bootstrap css mac dinh chen vao bootstrap cua theme
+
+Gii error co them so voi theme mac dinh vi default controller su dung GiiAsset
+<link href="/framework/backend/web/assets/dbed7c3f/css/bootstrap.css" rel="stylesheet">
+
+https://github.com/yiisoft/yii2/issues/1263
+https://github.com/Alex-Code/yii2/commit/ea3df11d940e8fd3e37aae235fada6562ced01d4
+
+https://github.com/yiisoft/yii2-gii/issues/314 => Solution
+E:\xampp\htdocs\framework\backend\views\site\error.php -> disabled bootstrap neu su dung theme ngoai
+if(isset(Yii::$app->view->theme)) {
+    \Yii::$app->assetManager->bundles['yii\\bootstrap\\BootstrapAsset'] = [
+        'css' => []
+    ];
+}
+
+20171122 ---------------------------------------------------------------------------------------------------------------
+Bad Request 400 frontend, xung dot cookie
+https://github.com/yiisoft/yii2-app-advanced/blob/master/docs/guide/topic-shared-hosting.md
+=> Thieu <?php $this->beginPage() ?>
+ trong layouts/main.php
+
+20171201 ---------------------------------------------------------------------------------------------------------------
+
+=========Login facebook=========
+- Use extensions
+https://github.com/yiisoft/yii2-authclient
+document: https://github.com/yiisoft/yii2-authclient/blob/master/docs/guide/README.md
+- Installation https://github.com/yiisoft/yii2-authclient/blob/master/docs/guide/installation.md
+- Quick start https://github.com/yiisoft/yii2-authclient/blob/master/docs/guide/quick-start.md
+- Migate auth table to db http://www.yiiframework.com/doc-2.0/guide-db-migrations.html
+Need to edit some code to make it works (attribute github not available in db but used in code)
+
+Facebook Note:
+he.look.kool.121189@gmail.com
+r9
+https://developers.facebook.com/apps/1041713642634394/dashboard/
+example: stephen.youstyle.space
+- Create APP with that URL
+
+ * Enable login facebook: Use that URL
+Turn on Đăng nhập OAuth được nhúng trên trình duyệt
+Setting: call back url http://stephen.youstyle.space/backend/web/index.php/site/auth?authclient=facebook (warning https)
+
+Common Errors:
+ + Callback url chua duoc set
+ + Warning URL bị chặn: Quá trình chuyển hướng này không thành công vì URI chuyển hướng không được thêm vào danh sách cho phép trong Cài đặt OAuth ứng dụng. Đảm bảo ứng dụng và Đăng nhập OAuth trên web đều bật và thêm tất cả các miền ứng dụng của bạn làm URI chuyển hướng OAuth hợp lệ.
+
+* Cai dat chung: URL trang web http://stephen.youstyle.space
+
+* Xet duyet ung dung: Chon che do cong khai, chon 1 category
+
+* Backend: Make sure
+'clientId' => '505522909803169',
+'clientSecret' => '1249e13f9c393d7017daf4ed15bbb794',
+Use right app client id and secret key
+If not:Không thể tải URL: Miền của URL này không được đưa vào miền của ứng dụng. Để có thể tải URL này, hãy thêm tất cả các miền và miền phụ của ứng dụng vào trường Miền ứng dụng trong cài đặt ứng dụng của bạn.
+
+=========Google=========
+https://developers.google.com/+/web/signin/ Need to enable Google Plus service and change it settings
+ 'clientId' => '465555388949-uacr1m285bge7t7rsu8aqhmg9b1t2222.apps.googleusercontent.com',
+ 'clientSecret' => 'iIehb1627ykEbz1752V9MZ-J',
+hyquoccuong@gmail.com
+
+
+=========Twiter=========
+https://apps.twitter.com must add mobile number to you twiter account
+'attributeParams' => [
+                        'include_email' => 'true'
+ ],
+ 'consumerKey' => 'Aw3APLoiJ7CO0xcQUk0E1PN7Z',
+ 'consumerSecret' => 'qn4RfggLpt8HOuNruy91FpowQETd9z9HKbamZMxQdKpXRsbVjM',
+hyquoccuong@gmail.com
+r9
+Note: default will not return email, if you want to get email:
+   https://apps.twitter.com/app/14532309/permissions => Additional Permissions => Check Request email addresses from users (Need to update Privacy Policy URL and Terms of Service URL in settings tab)
+   !important: 'include_email' => 'true' not 'include_email' => true (neu khong no se day params = 1)
+
+=========Github=========
+https://github.com/settings/developers
+'clientId' => 'ddf91058f35fd97fdea2',
+'clientSecret' => '04863ef4debbb98a8e0803b4c72a01ad87884b99',
+
+
+

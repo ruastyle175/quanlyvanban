@@ -1,0 +1,29 @@
+----------- Bugs -----------
+
+Sort order up/down or drag and drop?
+Function delete trong controller => khong the show popup de validate relations
+Fix popup form load 3rd paty widget and validate
+Popup view ko can chinh dc with cua <th> -> chuyen ve normal view?
+
+#1 Upload file trong ckeditor not working
+
+Fix
+#1 E:\xampp\htdocs\framework\vendor\sunhater\kcfinder\conf\config.php => disable => false
+
+///////////////////////////////////////////////////////////////
+
+PHP Warning – yii\base\ErrorException
+session_regenerate_id(): Session object destruction failed. ID: files (path: E:\xampp\tmp)
+
+add @ to inhibit possible warning due to race condition
+https://github.com/yiisoft/yii2/pull/1812
+
+if (YII_DEBUG && !headers_sent()) {
+    @session_regenerate_id($deleteOldSession);
+} else {
+    @session_regenerate_id($deleteOldSession);
+}
+
+https://github.com/yiisoft/yii2-redis/issues/82
+Yes, the behavior in debug mode is different in 2.0.10. It doesn't ignore errors anymore. What should be fixed is the cause of this error.
+

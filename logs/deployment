@@ -1,0 +1,28 @@
+On production server
+
+- Turn off dev mode & debug, enable product mod
+
+This can be achieved by changing two parameters in index.php file.
+
+1) Setting YII_DEBUG to false
+defined('YII_DEBUG') or define('YII_DEBUG', false);
+
+2) Setting YII_ENV to prod from dev
+defined('YII_ENV') or define('YII_ENV', 'prod');
+
+main.php
+
+    'modules' => [
+    'gii' => [
+        'class' => 'yii\gii\Module',
+        'allowedIPs' => ['127.0.0.1', '::1', '192.168.1.*', 'XXX.XXX.XXX.XXX'] // adjust this to your needs
+    ],
+
+    '*' for all IP
+
+chmod 777
+/backend/runtime
+/backend/web/assets
+/backend/web/upload & subfolders and files
+
+/common/component/FConstants.php

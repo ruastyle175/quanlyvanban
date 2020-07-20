@@ -1,0 +1,207 @@
+.breadcrumb >  li {
+    display: inline-block;
+}
+
+.breadcrumb > li + li:before {
+
+    padding: 0 5px;
+    color: #ccc;
+    content: "/\00a0";
+}
+
+.page-container-head {
+    padding: 8px 15px;
+    margin-bottom: 20px;
+    background-color: #FFFFFF;
+    border-radius: 4px;
+}
+/*modified page con tent header*/
+.breadcrumb {
+    list-style: none;
+    display: inline-block;
+    padding: 0;
+    line-height: 24pt;
+}
+
+.page-container-head .page-toolbar {
+    display: inline-block;
+}
+
+.page-container-head .btn-theme-panel {
+    padding-top: 5px;
+    margin: 0;
+}
+
+/*theme layout css display none -> overwrite*/
+.breadcrumb>li+li:before {
+    display: inline-block !important;
+}
+
+
+
+.kv-editable-link {
+    color: #428bca;
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 2px 1px;
+    text-decoration: none;
+    cursor: pointer;
+    border-bottom: 0px dashed !important;
+}
+
+.checkbox > label {
+    padding-left: 20px !important;
+}
+
+/*login page*/
+
+.login {
+    background-color: #7B8890 !important;
+}
+
+.login .btn-primary {
+    background-color: #51585D !important;
+    border: 1px solid #B1B9BD !important;
+    color: #DBE3E8 !important;
+}
+
+.login .content .form-control {
+    background-color: #98A6AF !important;
+    border: 1px solid #5A6267 !important;
+}
+
+.portlet-title > .tools > a.fullscreen {
+    text-decoration: none!important;
+}
+
+.panel-title {
+    font-weight: 600;
+}
+
+
+/*grid view*/
+/*Yii 2 new version -> long text content will break layout of gridview*/
+/* backend/web/css/site.css*/
+/*.grid-view td {*/
+/*white-space: nowrap;*/
+/*}*/
+
+
+
+/*keep text non word break  not working*/
+/*.table>tbody>tr>th,  .table>tfoot>tr>th .table>thead>tr>th {*/
+/*word-break: keep-all;*/
+/*}*/
+
+.table>tbody>tr>td, .table>tfoot>tr>td,.table>thead>tr>td {
+    word-break: break-word;
+    white-space: inherit !important;
+}
+
+.grid-view td {
+    word-break: normal !important;
+    white-space: inherit !important;
+}
+
+.page-content-white .theme-panel {
+    margin-top: 0;
+}
+
+.theme-panel>.toggler, .theme-panel>.toggler-close, .theme-panel>.theme-options {
+    top: 0;
+    padding: 17px;
+}
+.pt-toolbar {
+    float: right;
+    padding-right: 34px;
+}
+
+.page-content-white .page-title {
+    margin: 0 0 25px 0;
+}
+
+.breadcrumb {
+    background-color: #ffffff;
+}
+
+.breadcrumb {
+    background-color: #eef1f5;
+}
+
+.page-content {
+    background-color: #eef1f5;
+}
+
+/*panel before gridview kartik customization*/
+
+.kv-panel-before {
+
+    border-bottom: 0!important;
+}
+#crud-datatable-container{
+    border: 0 solid #e7ecf1;
+    margin-top:15px;
+}
+.panel-primary>.panel-heading {
+    background: #ffffff;
+    border-color: #ffffff;
+    display: none;
+}
+.panel-primary {
+    border-color: #ffffff;
+}
+.panel-heading {
+    padding: 0;
+    border-bottom: 1px solid transparent;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+}
+.kv-panel-before {
+    margin: 0;
+    padding: 0;
+}
+
+.portlet.light.bordered>.portlet-title {
+    border-bottom: 1px solid #eef1f5;
+    margin-bottom: 0;
+}
+.summary{
+    float:right;
+    margin-top: 25px;
+}
+
+.portlet > .portlet-title {
+    margin-bottom: 10px !important;
+}
+
+.form-horizontal .control-label {
+    text-align: left !important;
+}
+
+.kv-panel-before {
+    padding-left: 0!important;
+    padding-right: 0!important;
+}
+
+.modal .modal-content {
+    /*
+    margin-top: 100px;
+    */
+    min-width: fit-content;
+}
+
+.input-group-addon>i {
+    color: #555 !important;
+}
+
+/* Alert widget customization*/
+.alert-success {
+    background-color: #c9edf1;
+    color: #0e5d65;
+}
+
+/* Style for detail view*/
+.detail-view tr>th {
+    width: 15%;
+}
