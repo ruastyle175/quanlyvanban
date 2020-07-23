@@ -36,18 +36,18 @@ class VbDi extends VbDiBase
     {
         return [
             'id' => Yii::t('VbDen', 'ID'),
-            'id_nhom_vanban' => Yii::t('VbDen', 'Id Nhom Vanban'),
-            'so_hieu' => Yii::t('VbDen', 'So Hieu'),
-            'id_loai_vanban' => Yii::t('VbDen', 'Id Loai Vanban'),
-            'noidung_vanban' => Yii::t('VbDen', 'Noidung Vanban'),
-            'thoigian_banhanh' => Yii::t('VbDen', 'Thoigian Banhanh'),
-            'noi_nhan' => Yii::t('VbDen', 'Noi Nhan'),
-            'id_nguoiki' => Yii::t('VbDen', 'Id Nguoiki'),
-            'file_dinhkem' => Yii::t('VbDen', 'File Dinhkem'),
+            'id_nhom_vanban' => Yii::t('VbDen', 'Nhóm văn bản'),
+            'so_hieu' => Yii::t('VbDen', 'Số hiệu'),
+            'id_loai_vanban' => Yii::t('VbDen', 'Loại văn bản'),
+            'noidung_vanban' => Yii::t('VbDen', 'Nội dung'),
+            'thoigian_banhanh' => Yii::t('VbDen', 'Thời gian ban hành'),
+            'noi_nhan' => Yii::t('VbDen', 'Nơi nhận'),
+            'id_nguoiki' => Yii::t('VbDen', 'Người kí'),
+            'file_dinhkem' => Yii::t('VbDen', 'Văn bản đính kèm'),
             'created_at' => Yii::t('VbDen', 'Created At'),
             'updated_at' => Yii::t('VbDen', 'Updated At'),
-            'del_flg' => Yii::t('VbDen', 'Del Flg'),
-            'file_dinhkem_file' => Yii::t('VbDen', 'File Dinhkem File'),
+            'del_flg' => Yii::t('VbDen', 'Đã xóa'),
+            'file_dinhkem_file' => Yii::t('VbDen', 'Văn bản đính kèm'),
         ];
     }
 

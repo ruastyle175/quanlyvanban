@@ -32,25 +32,25 @@ class System extends \yii\base\Module
             array(
                 array(
                     'active' => $module == 'system',
-                    'name' => Yii::t('common', 'System'),
+                    'name' => Yii::t('common', 'Quản trị'),
                     'icon' => 'icon-settings',
                     'display' => !Yii::$app->user->isGuest && User::isAdmin(Yii::$app->user->identity->role),
                     'children' => array(
-                        array(
-                            'active' => $controller == 'setting',
-                            'name' => Yii::t('common', 'Settings'),
-                            'icon' => 'glyphicon glyphicon-cog',
-                            'url' => Yii::$app->urlManager->createUrl(['/system/setting/index']),
-                        ),
+//                        array(
+//                            'active' => $controller == 'setting',
+//                            'name' => Yii::t('common', 'Settings'),
+//                            'icon' => 'glyphicon glyphicon-cog',
+//                            'url' => Yii::$app->urlManager->createUrl(['/system/setting/index']),
+//                        ),
                         array(
                             'active' => $module == 'system' && ($controller == 'role' || $action == 'right'),
-                            'name' => Yii::t('common', 'Roles'),
+                            'name' => Yii::t('common', 'Phân quyền'),
                             'icon' => 'glyphicon glyphicon-tower',
                             'url' => Yii::$app->urlManager->createUrl(['system/role/index']),
                         ),
                         array(
                             'active' => $module == 'system' && $controller == 'user',
-                            'name' => Yii::t('common', 'Users'),
+                            'name' => Yii::t('common', 'Tài khoản'),
                             'icon' => 'glyphicon glyphicon-user',
                             'url' => Yii::$app->urlManager->createUrl(['system/user/index']),
                         )

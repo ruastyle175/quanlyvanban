@@ -114,7 +114,7 @@ Yii::$app->session->set('KCFINDER', $kcfOptions);
                             'data' => backend\models\VbDen::lookupData('m_don_vi_gui', 'id', 'ten_don_vi'),
                             'options' => [
                                 'multiple' => false,
-                                'prompt' => Yii::t('VbDen', 'Select Id Donvi Gui')
+                                'prompt' => Yii::t('VbDen', 'Chọn đơn vị gửi')
                             ],
                             'pluginOptions' => [
                                 'allowClear' => true,
@@ -128,7 +128,7 @@ Yii::$app->session->set('KCFINDER', $kcfOptions);
                             'data' => backend\models\VbDen::lookupData('m_loai_vb', 'id', 'loai_vb'),
                             'options' => [
                                 'multiple' => false,
-                                'prompt' => Yii::t('VbDen', 'Select Id Loai Vanban')
+                                'prompt' => Yii::t('VbDen', 'Chọn loại văn bản')
                             ],
                             'pluginOptions' => [
                                 'allowClear' => true,
@@ -144,14 +144,14 @@ Yii::$app->session->set('KCFINDER', $kcfOptions);
                         ]) ?>
 
                         <?= $form->field($model, 'thoigian_banhanh')->widget(\kartik\widgets\DateTimePicker::classname(), [
-                            'options' => ['placeholder' => Yii::t('VbDen', 'Select Thoigian Banhanh')],
+                            'options' => ['placeholder' => Yii::t('VbDen', 'Chọn thời gian ban hành')],
                             'pluginOptions' => [
                                 'autoclose' => true
                             ]
                         ]) ?>
 
                         <?= $form->field($model, 'thoigian_nhan')->widget(\kartik\widgets\DateTimePicker::classname(), [
-                            'options' => ['placeholder' => Yii::t('VbDen', 'Select Thoigian Nhan')],
+                            'options' => ['placeholder' => Yii::t('VbDen', 'Chọn thời gian nhận')],
                             'pluginOptions' => [
                                 'autoclose' => true
                             ]
@@ -161,7 +161,7 @@ Yii::$app->session->set('KCFINDER', $kcfOptions);
                             'data' => backend\models\VbDen::lookupData('m_lanh_dao', 'id', 'ten_lanh_dao'),
                             'options' => [
                                 'multiple' => false,
-                                'prompt' => Yii::t('VbDen', 'Select Id Lanh Dao')
+                                'prompt' => Yii::t('VbDen', 'Chọn lãnh đạo')
                             ],
                             'pluginOptions' => [
                                 'allowClear' => true,
@@ -173,7 +173,7 @@ Yii::$app->session->set('KCFINDER', $kcfOptions);
                             'data' => backend\models\VbDen::lookupData('m_can_bo', 'id', 'ten_can_bo'),
                             'options' => [
                                 'multiple' => false,
-                                'prompt' => Yii::t('VbDen', 'Select Id Can Bo')
+                                'prompt' => Yii::t('VbDen', 'Chọn cán bộ')
                             ],
                             'pluginOptions' => [
                                 'allowClear' => true,
@@ -182,7 +182,7 @@ Yii::$app->session->set('KCFINDER', $kcfOptions);
                         ]) ?>
 
                         <?= $form->field($model, 'thoigian_hoanthanh')->widget(\kartik\widgets\DateTimePicker::classname(), [
-                            'options' => ['placeholder' => Yii::t('VbDen', 'Select Thoigian Hoanthanh')],
+                            'options' => ['placeholder' => Yii::t('VbDen', 'Chọn thời gian hoàn thành')],
                             'pluginOptions' => [
                                 'autoclose' => true
                             ]
@@ -192,7 +192,7 @@ Yii::$app->session->set('KCFINDER', $kcfOptions);
                             'data' => backend\models\VbDen::lookupData('m_trang_thai', 'id', 'trang_thai'),
                             'options' => [
                                 'multiple' => false,
-                                'prompt' => Yii::t('VbDen', 'Select Id Trang Thai')
+                                'prompt' => Yii::t('VbDen', 'Chọn trạng thái')
                             ],
                             'pluginOptions' => [
                                 'allowClear' => true,
@@ -200,7 +200,7 @@ Yii::$app->session->set('KCFINDER', $kcfOptions);
                             ]
                         ]) ?>
 
-                        <?= $form->field($model, 'del_flg')->widget(\kartik\checkbox\CheckboxX::classname(), ['options' => ['value' => $model->isNewRecord ? 1 : $model->del_flg], 'pluginOptions' => ['theme' => 'krajee-flatblue', 'size' => 'lg', 'threeState' => false]]) ?>
+                        <?= $form->field($model, 'del_flg')->widget(\kartik\checkbox\CheckboxX::classname(), ['options' => ['value' => $model->isNewRecord ? 0 : $model->del_flg], 'pluginOptions' => ['theme' => 'krajee-flatblue', 'size' => 'lg', 'threeState' => false]]) ?>
 
                     </div>
                     <div class="form-actions">
@@ -209,7 +209,7 @@ Yii::$app->session->set('KCFINDER', $kcfOptions);
                             <?= Html::a(Yii::t('common', 'Delete'), ['delete', 'id' => $model->id], [
                                 'class' => 'btn btn-danger',
                                 'data' => [
-                                    'confirm' => 'Are you sure you want to delete this item?',
+                                    'confirm' => 'Bạn có chắc chắn muốn xóa không?',
                                     'method' => 'post',
                                 ],
                             ]); ?>

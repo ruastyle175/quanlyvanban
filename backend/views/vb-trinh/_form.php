@@ -110,7 +110,7 @@ Yii::$app->session->set('KCFINDER', $kcfOptions);
                         ]) ?>
 
                         <?= $form->field($model, 'thoigian_trinh')->widget(\kartik\widgets\DateTimePicker::classname(), [
-                            'options' => ['placeholder' => Yii::t('VbDen', 'Select Thoigian Trinh')],
+                            'options' => ['placeholder' => Yii::t('VbDen', 'Chọn thời gian trình')],
                             'pluginOptions' => [
                                 'autoclose' => true
                             ]
@@ -120,7 +120,7 @@ Yii::$app->session->set('KCFINDER', $kcfOptions);
                             'data' => backend\models\VbTrinh::lookupData('m_nguoi_nhan', 'id', 'nguoi_nhan'),
                             'options' => [
                                 'multiple' => false,
-                                'prompt' => Yii::t('VbDen', 'Select Id Nguoi Nhan')
+                                'prompt' => Yii::t('VbDen', 'Chọn người nhận')
                             ],
                             'pluginOptions' => [
                                 'allowClear' => true,
@@ -130,7 +130,7 @@ Yii::$app->session->set('KCFINDER', $kcfOptions);
 
                         <?= $form->field($model, 'ghichu')->textInput(['maxlength' => true]) ?>
 
-                        <?= $form->field($model, 'del_flg')->widget(\kartik\checkbox\CheckboxX::classname(), ['options' => ['value' => $model->isNewRecord ? 1 : $model->del_flg], 'pluginOptions' => ['theme' => 'krajee-flatblue', 'size' => 'lg', 'threeState' => false]]) ?>
+                        <?= $form->field($model, 'del_flg')->widget(\kartik\checkbox\CheckboxX::classname(), ['options' => ['value' => $model->isNewRecord ? 0 : $model->del_flg], 'pluginOptions' => ['theme' => 'krajee-flatblue', 'size' => 'lg', 'threeState' => false]]) ?>
 
                     </div>
                     <div class="form-actions">

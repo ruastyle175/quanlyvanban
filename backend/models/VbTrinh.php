@@ -31,14 +31,14 @@ class VbTrinh extends VbTrinhBase
     {
         return [
             'id' => Yii::t('VbDen', 'ID'),
-            'so_hieu' => Yii::t('VbDen', 'So Hieu'),
-            'noidung_vanban' => Yii::t('VbDen', 'Noidung Vanban'),
-            'thoigian_trinh' => Yii::t('VbDen', 'Thoigian Trinh'),
-            'id_nguoi_nhan' => Yii::t('VbDen', 'Id Nguoi Nhan'),
-            'ghichu' => Yii::t('VbDen', 'Ghichu'),
+            'so_hieu' => Yii::t('VbDen', 'Số hiệu'),
+            'noidung_vanban' => Yii::t('VbDen', 'Nội dung'),
+            'thoigian_trinh' => Yii::t('VbDen', 'Thời gian trình'),
+            'id_nguoi_nhan' => Yii::t('VbDen', 'Người nhận'),
+            'ghichu' => Yii::t('VbDen', 'Ghi chú'),
             'created_at' => Yii::t('VbDen', 'Created At'),
             'updated_at' => Yii::t('VbDen', 'Updated At'),
-            'del_flg' => Yii::t('VbDen', 'Del Flg'),
+            'del_flg' => Yii::t('VbDen', 'Đã xóa'),
         ];
     }
 

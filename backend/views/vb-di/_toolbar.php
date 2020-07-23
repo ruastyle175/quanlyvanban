@@ -4,10 +4,10 @@ use yii\helpers\Html;
 use kartik\dropdown\DropdownX;
 use common\components\FHtml;
 
-$bulkActionButton = '<div class="dropdown pull-left" style="margin-left: 3px"><button class="btn btn-default" data-toggle="dropdown">' . Yii::t('common', 'Actions') . '</button>' .
+$bulkActionButton = '<div class="dropdown pull-left" style="margin-left: 3px"><button class="btn btn-default" data-toggle="dropdown">' . Yii::t('common', 'Tính năng') . '</button>' .
     DropdownX::widget([
         'items' => \yii\helpers\ArrayHelper::merge(
-            [FHtml::buildBulkActionsMenu(FHtml::CHANGE_TYPE, Yii::t('common', 'Set') . ' ' . Yii::t('common', 'Del Flg'), 'vb_di', 'del_flg')],
+            [FHtml::buildBulkActionsMenu(FHtml::CHANGE_TYPE, Yii::t('common', 'Set') . ' ' . Yii::t('common', 'Đã xóa'), 'vb_di', 'del_flg')],
             ['<li class="divider"></li>'],
             //[FHtml::buildBulkActionsMenu(FHtml::CLEAR_TYPE, ucwords(FHtml::CLEAR_TYPE) . ' ' . Yii::t('common', 'Amount'), false, 'amount')],
             //[FHtml::buildBulkActionsMenu(FHtml::FILL_TYPE, ucwords(FHtml::FILL_TYPE) . ' ' . Yii::t('common', 'Amount'), false, 'amount')],
@@ -29,7 +29,7 @@ return [
                     'style' => 'float:left;'
                 ]) .
             '{export}' .
-            Html::a('<i class="glyphicon glyphicon-repeat"></i>', [''], ['data-pjax' => 1, 'class' => 'btn btn-default', 'title' => Yii::t('common', 'Reset Grid')]) .
+            Html::a('<i class="glyphicon glyphicon-repeat"></i>', [''], ['data-pjax' => 1, 'class' => 'btn btn-default', 'title' => Yii::t('common', 'Làm mới danh sách')]) .
             '{toggleData}' .
             $bulkActionButton,
         'options' => ['class' => 'text-right kv-panel-before']

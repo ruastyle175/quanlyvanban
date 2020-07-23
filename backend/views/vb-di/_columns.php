@@ -27,7 +27,7 @@ return [
         'filter' => backend\models\VbDi::lookupData('m_nhom_vb', 'id', 'nhom_vb'),
         'filterType' => \kartik\grid\GridView::FILTER_SELECT2,
         'filterWidgetOptions' => ['pluginOptions' => ['allowClear' => true]],
-        'filterInputOptions' => ['placeholder' => Yii::t('VbDen', 'Select Id Nhom Vanban')],
+        'filterInputOptions' => ['placeholder' => Yii::t('VbDen', 'Chọn nhóm văn bản')],
         'format' => 'html',
         'hAlign' => 'center',
         'vAlign' => 'middle',
@@ -49,7 +49,7 @@ return [
         'filter' => backend\models\VbDi::lookupData('m_loai_vb', 'id', 'loai_vb'),
         'filterType' => \kartik\grid\GridView::FILTER_SELECT2,
         'filterWidgetOptions' => ['pluginOptions' => ['allowClear' => true]],
-        'filterInputOptions' => ['placeholder' => Yii::t('VbDen', 'Select Id Loai Vanban')],
+        'filterInputOptions' => ['placeholder' => Yii::t('VbDen', 'Chọn loại văn bản')],
         'format' => 'html',
         'hAlign' => 'center',
         'vAlign' => 'middle',
@@ -65,6 +65,7 @@ return [
     [
         'class' => 'kartik\grid\DataColumn',
         'attribute' => 'thoigian_banhanh',
+        'filterType' => \kartik\grid\GridView::FILTER_DATETIME,
         'hAlign' => 'center',
         'vAlign' => 'middle',
         'contentOptions' => ['class' => 'col-md-1 nowrap'],
@@ -85,7 +86,7 @@ return [
         'filter' => backend\models\VbDi::lookupData('m_nguoi_ky', 'id', 'nguoi_ky'),
         'filterType' => \kartik\grid\GridView::FILTER_SELECT2,
         'filterWidgetOptions' => ['pluginOptions' => ['allowClear' => true]],
-        'filterInputOptions' => ['placeholder' => Yii::t('VbDen', 'Select Id Nguoiki')],
+        'filterInputOptions' => ['placeholder' => Yii::t('VbDen', 'Chọn người kí')],
         'format' => 'html',
         'hAlign' => 'center',
         'vAlign' => 'middle',
@@ -126,17 +127,17 @@ return [
         'urlCreator' => function ($action, $model) {
             return Url::to([$action, 'id' => $model->id]);
         },
-        'viewOptions' => ['role' => 'modal-remote', 'title' => Yii::t('common', 'View'), 'data-toggle' => 'tooltip'],
-        'updateOptions' => ['role' => $this->params['displayType'], 'title' => Yii::t('common', 'Update'), 'data-toggle' => 'tooltip'],
+        'viewOptions' => ['role' => 'modal-remote', 'title' => Yii::t('common', 'Xem'), 'data-toggle' => 'tooltip'],
+        'updateOptions' => ['role' => $this->params['displayType'], 'title' => Yii::t('common', 'Cập nhật'), 'data-toggle' => 'tooltip'],
         'deleteOptions' => [
             'role' => 'modal-remote',
-            'title' => Yii::t('common', 'Delete'),
+            'title' => Yii::t('common', 'Xóa'),
             'data-confirm' => false,
             'data-method' => false,// for overide yii data api
             'data-request-method' => 'post',
             'data-toggle' => 'tooltip',
             'data-confirm-title' => 'Confirmation',
-            'data-confirm-message' => 'Are you sure want to delete this item'
+            'data-confirm-message' => 'Bạn có chắc chắn muốn xóa?'
         ],
     ],
 ];

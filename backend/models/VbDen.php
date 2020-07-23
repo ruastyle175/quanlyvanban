@@ -32,19 +32,19 @@ class VbDen extends VbDenBase
     {
         return [
             'id' => Yii::t('VbDen', 'ID'),
-            'id_donvi_gui' => Yii::t('VbDen', 'Id Donvi Gui'),
-            'so_hieu' => Yii::t('VbDen', 'So Hieu'),
-            'id_loai_vanban' => Yii::t('VbDen', 'Id Loai Vanban'),
-            'noidung_vanban' => Yii::t('VbDen', 'Noidung Vanban'),
-            'thoigian_banhanh' => Yii::t('VbDen', 'Thoigian Banhanh'),
-            'thoigian_nhan' => Yii::t('VbDen', 'Thoigian Nhan'),
-            'id_lanh_dao' => Yii::t('VbDen', 'Id Lanh Dao'),
-            'id_can_bo' => Yii::t('VbDen', 'Id Can Bo'),
-            'thoigian_hoanthanh' => Yii::t('VbDen', 'Thoigian Hoanthanh'),
-            'id_trang_thai' => Yii::t('VbDen', 'Id Trang Thai'),
+            'id_donvi_gui' => Yii::t('VbDen', 'Đơn vị gửi'),
+            'so_hieu' => Yii::t('VbDen', 'Số hiệu'),
+            'id_loai_vanban' => Yii::t('VbDen', 'Loại văn bản'),
+            'noidung_vanban' => Yii::t('VbDen', 'Nội dung'),
+            'thoigian_banhanh' => Yii::t('VbDen', 'Thời gian ban hành'),
+            'thoigian_nhan' => Yii::t('VbDen', 'Thời gian nhận'),
+            'id_lanh_dao' => Yii::t('VbDen', 'Lãnh đạo'),
+            'id_can_bo' => Yii::t('VbDen', 'Cán bộ'),
+            'thoigian_hoanthanh' => Yii::t('VbDen', 'Thời gian hoàn thành'),
+            'id_trang_thai' => Yii::t('VbDen', 'Trạng thái'),
             'created_at' => Yii::t('VbDen', 'Created At'),
             'updated_at' => Yii::t('VbDen', 'Updated At'),
-            'del_flg' => Yii::t('VbDen', 'Del Flg'),
+            'del_flg' => Yii::t('VbDen', 'Đã xóa'),
         ];
     }
 

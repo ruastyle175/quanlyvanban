@@ -15,26 +15,26 @@ $this->title = 'Login';
     <?php $form = ActiveForm::begin(['id' => 'login-form', 'options' => [
         'class' => 'login-form'
     ]]); ?>
-    <h3 class="form-title">Login to your account</h3>
+
     <div class="alert alert-danger display-hide">
         <button class="close" data-close="alert"></button>
-        <span> Enter any username and password. </span>
+        <span> Yêu cầu nhập tài khoản và mật khẩu. </span>
     </div>
 
-    <?= $form->field($model, 'username', ['template' => "{label}\n<label class=\"control-label visible-ie8 visible-ie9\">Username</label>\n<div class=\"input-icon\"><i class=\"fa fa-user\"></i>\n{input}\n</div>\n{hint}\n{error}"])
+    <?= $form->field($model, 'username', ['template' => "{label}\n<label class=\"control-label visible-ie8 visible-ie9\">Tài khoản</label>\n<div class=\"input-icon\"><i class=\"fa fa-user\"></i>\n{input}\n</div>\n{hint}\n{error}"])
         ->textInput([
             'autofocus' => true,
-            'placeholder' => 'Username',
+            'placeholder' => 'Tài khoản',
             'class' => 'form-control placeholder-no-fix',
             'autocomplete' => 'off'
         ])
         ->label(false)
     ?>
 
-    <?= $form->field($model, 'password', ['template' => "{label}\n<label class=\"control-label visible-ie8 visible-ie9\">Password</label>\n<div class=\"input-icon\"><i class=\"fa fa-lock\"></i>\n{input}\n</div>\n{hint}\n{error}"])
+    <?= $form->field($model, 'password', ['template' => "{label}\n<label class=\"control-label visible-ie8 visible-ie9\">Mật khẩu</label>\n<div class=\"input-icon\"><i class=\"fa fa-lock\"></i>\n{input}\n</div>\n{hint}\n{error}"])
         ->passwordInput([
             'autofocus' => true,
-            'placeholder' => 'Password',
+            'placeholder' => 'Mật khẩu',
             'class' => 'form-control placeholder-no-fix',
             'autocomplete' => 'off'
         ])
@@ -42,15 +42,10 @@ $this->title = 'Login';
     ?>
 
     <div class="form-actions">
-        <?= $form->field($model, 'rememberMe', ['template' => "<label class=\"rememberme mt-checkbox mt-checkbox-outline\">\n{input}\nRemember Me<span></span></label>\n{error}", 'options' => ['class' => 'col-xs-8']])->checkbox([], false) ?>
-        <?= Html::submitButton('Login', ['class' => 'btn green pull-right', 'name' => 'login-button']) ?>
+        <?= $form->field($model, 'rememberMe', ['template' => "<label class=\"rememberme mt-checkbox mt-checkbox-outline\">\n{input}\nLưu tài khoản<span></span></label>\n{error}", 'options' => ['class' => 'col-xs-8']])->checkbox([], false) ?>
+        <?= Html::submitButton('Đăng nhập', ['class' => 'btn green pull-right', 'name' => 'login-button']) ?>
     </div>
-    <div class="forget-password">
-        <h4>Forgot your password ?</h4>
-        <p> No worries, click
-            <a href="<?= Yii::$app->urlManager->createUrl(['/site/request-password-reset']) ?>" id="forget-password">
-                here </a> to reset your password. </p>
-    </div>
+
     <?php ActiveForm::end(); ?>
 
     <!-- END LOGIN FORM -->
